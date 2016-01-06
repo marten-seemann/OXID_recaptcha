@@ -2,3 +2,7 @@ composer.phar
 composer.lock
 
 /vendor/
+
+build/copy_this
+build/upload.sh
+build/*.zip

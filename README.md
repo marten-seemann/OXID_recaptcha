@@ -7,7 +7,9 @@ Implements [Google's ReCaptcha](https://www.google.com/recaptcha) into OXID eSho
 
 ### for ROXID users
 
-Just upload the `recaptcha` folder to the `modules` directory and activate the module in the OXID backend.
+Download a release and copy the contents of the folder `copy_this` to your server. **Do NOT** download the source files and just upload them to your server, that won't work.
+
+Generate a key pair on [https://www.google.com/recaptcha/admin](https://www.google.com/recaptcha/admin) and set the values in the module settings in the OXID backend. Then activate the module.
 
 
 ### for users of other templates
