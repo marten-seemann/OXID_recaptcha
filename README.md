@@ -32,7 +32,11 @@ Enclose the label in a block named *captcha_label*, for example in the `form/con
 by
 
 ```html
-<label class="req">[{block name="captcha_label"}][{ oxmultilang ident="VERIFICATION_CODE" suffix="COLON" }][{/label}]</label>
+<label class="req">
+    [{block name="captcha_label"}]
+        [{ oxmultilang ident="VERIFICATION_CODE" suffix="COLON" }]
+    [{/block}]
+</label>
 ```
 
 and the actual captcha in a block named *captcha_body*
