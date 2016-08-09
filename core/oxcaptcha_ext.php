@@ -30,4 +30,12 @@ class oxcaptcha_ext extends oxcaptcha_ext_parent {
     }
   }
 
+  /**
+  * it is not necessary to get a hash when using ReCaptcha
+  *
+  * @return an empty string
+  */
+  public function getHash($sText = null) {
+    return "";
+  }
 }
