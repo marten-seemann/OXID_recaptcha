@@ -7,7 +7,3 @@
 
 <div class="g-recaptcha" data-sitekey="[{$oViewConf->getReCaptchaSiteKey()}]" data-theme="light" ></div>
 <script src="https://www.google.com/recaptcha/api.js[{if $language|count_characters > 0}]?hl=[{$language}][{/if}]" async defer></script>
-
-
-
-

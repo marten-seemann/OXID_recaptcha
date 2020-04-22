@@ -2,41 +2,52 @@
 /**
  * Metadata version
  */
-$sMetadataVersion = '1.1';
+$sMetadataVersion = '2.0';
 
 /**
  * Module information
  */
-$aModule = array(
+$aModule = [
     'id'           => 'recaptcha',
     'title'        => 'ReCaptcha',
     'description'  => array(
-        'en' => 'simplify captchas by using ReCaptcha',
-        'de' => 'einfachere Captchas mit ReCaptcha'
+        'en' => 'protect the contact form using ReCaptcha',
+        'de' => 'Kontakt-Formular mit ReCaptcha schützen'
         ),
-    'version'      => '1.1',
+    'version'      => '2.0',
     'author'       => 'Marten Seemann',
     'thumbnail'    => 'logo.png',
-    'extend'       => array(
-        'oxcaptcha' => 'recaptcha/core/oxcaptcha_ext',
-        'oxconfig'  => 'recaptcha/core/oxconfig_ext',
-        'oxviewconfig'  => 'recaptcha/core/oxviewconfig_ext',
-    ),
-    'blocks'       => array(
-        array('template' => 'form/contact.tpl', 'block' => 'captcha_label', 'file' => '/views/blocks/captcha_label.tpl'),
-        array('template' => 'form/pricealarm.tpl', 'block' => 'captcha_label', 'file' => '/views/blocks/captcha_label.tpl'),
-        array('template' => 'form/suggest.tpl', 'block' => 'captcha_label', 'file' => '/views/blocks/captcha_label.tpl'),
-        array('template' => 'form/privatesales/invite.tpl', 'block' => 'captcha_label', 'file' => '/views/blocks/captcha_label.tpl'),
-        array('template' => 'form/contact.tpl', 'block' => 'captcha_body', 'file' => '/views/blocks/captcha_body.tpl'),
-        array('template' => 'form/pricealarm.tpl', 'block' => 'captcha_body', 'file' => '/views/blocks/captcha_body.tpl'),
-        array('template' => 'form/suggest.tpl', 'block' => 'captcha_body', 'file' => '/views/blocks/captcha_body.tpl'),
-        array('template' => 'form/privatesales/invite.tpl', 'block' => 'captcha_body', 'file' => '/views/blocks/captcha_body.tpl'),
-    ),
-    'templates'    => array(
-    ),
-    'settings'     => array(
-        array('group' => 'recaptcha_general', 'name' => 'recaptcha_site_key', 'type' => 'str',  'value' => '', 'position' => 1),
-        array('group' => 'recaptcha_general', 'name' => 'recaptcha_secret_key', 'type' => 'str',  'value' => '', 'position' => 2),
-    ),
-    'url' => 'http://www.oxid-responsive.com'
-);
+    'extend'       => [
+        \OxidEsales\Eshop\Application\Controller\ContactController::class => \SeemannIT\Recaptcha\Application\Controller\ContactController::class,
+        \OxidEsales\Eshop\Core\Config::class => \SeemannIT\Recaptcha\Core\Config::class,
+        \OxidEsales\Eshop\Core\ViewConfig::class => \SeemannIT\Recaptcha\Core\ViewConfig::class,
+    ],
+    'blocks'       => [
+        [
+            'template' => 'form/contact.tpl',
+            'block' => 'captcha_form',
+            'file' => '/views/blocks/contact.tpl'
+        ],
+    ],
+    'settings'     => [
+        [
+            'group' => 'recaptcha_general',
+            'name' => 'recaptcha_site_key',
+            'type' => 'str',
+            'value' => '',
+            'position' => 1
+        ],
+        [
+            'group' => 'recaptcha_general',
+            'name' => 'recaptcha_secret_key',
+            'type' => 'str',
+            'value' => '',
+            'position' => 2
+        ],
+    ],
+    'templates' => [
+        'captcha_label.tpl' => 'seemannit/recaptcha/views/blocks/captcha_label.tpl',
+        'captcha_body.tpl' => 'seemannit/recaptcha/views/blocks/captcha_body.tpl',
+    ],
+    'url' => 'https://www.oxid-responsive.com'
+];

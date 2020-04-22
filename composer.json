@@ -1,5 +1,23 @@
 {
-    "require": {
-        "google/recaptcha": "~1.1"
+  "name": "seemannit/recaptcha",
+  "description": "ReCaptcha module for OXID eShop.",
+  "type": "oxideshop-module",
+  "keywords": ["oxid", "modules", "eShop", "recpathca"],
+  "homepage": "https://www.oxid-responsive.com",
+  "license": [ "MIT" ],
+  "require": {
+    "php": ">=7.0",
+    "google/recaptcha": "~1.1"
+  },
+  "extra": {
+    "oxideshop": {
+      "target-directory": "seemannit/recaptcha"
     }
+  },
+  "autoload": {
+    "psr-4": {
+        "SeemannIT\\Recaptcha\\": "../../../source/modules/seemannit/recaptcha"
+    }
+  }  
 }
+  

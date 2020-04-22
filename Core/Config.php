@@ -1,5 +1,7 @@
 <?php
-class oxconfig_ext extends oxconfig_ext_parent {
+namespace SeemannIT\Recaptcha\Core;
+
+class Config extends Config_parent {
 
   /**
   * return g-recaptcha-response if asked for c_mac
